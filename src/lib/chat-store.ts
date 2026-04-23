@@ -33,6 +33,7 @@ interface ChatState {
 
   users: Record<string, ConnectedUser>
   activeUserId: string | null
+  typingUsers: Record<string, boolean>
   setActiveUser: (id: string | null) => void
   addUser: (u: ConnectedUser) => void
   removeUser: (id: string) => void
@@ -41,6 +42,7 @@ interface ChatState {
   incrementUnread: (userId: string) => void
   clearUnread: (userId: string) => void
   addSystemMessage: (userId: string, text: string) => void
+  setTyping: (userId: string, val: boolean) => void
   reset: () => void
 }
 
@@ -76,6 +78,7 @@ export const useChatStore = create<ChatState>((set) => ({
 
   users: {},
   activeUserId: null,
+  typingUsers: {},
   setActiveUser: (id) => set({ activeUserId: id }),
   addUser: (u) => set((s) => ({ users: { ...s.users, [u.peerId]: u } })),
   removeUser: (id) => set((s) => {
@@ -113,5 +116,6 @@ export const useChatStore = create<ChatState>((set) => ({
       },
     }
   }),
-  reset: () => set({ screen: "role", adminCode: "", userName: "", users: {}, activeUserId: null }),
+  setTyping: (userId, val) => set((s) => ({ typingUsers: { ...s.typingUsers, [userId]: val } })),
+  reset: () => set({ screen: "role", adminCode: "", userName: "", users: {}, activeUserId: null, typingUsers: {} }),
 }))

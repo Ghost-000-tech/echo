@@ -26,38 +26,40 @@ export function UserLogin({ onConnect, connecting, error }: UserLoginProps) {
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="max-w-sm w-full rounded-2xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl p-7"
+        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="max-w-sm w-full rounded-[24px] border border-white/[0.08] bg-white/[0.02] backdrop-blur-2xl p-8 shadow-2xl relative overflow-hidden"
       >
+        <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/5 blur-3xl rounded-full -mr-16 -mt-16" />
+
         <button
           onClick={() => setScreen("role")}
-          className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/5 transition-colors mb-5"
+          className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/5 transition-all active:scale-90 mb-6"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-5 h-5" />
         </button>
 
-        <h2 className="text-lg font-semibold text-white mb-1">Conectar con Admin</h2>
-        <p className="text-slate-500 text-xs mb-6">Ingresa el código que te dio el administrador</p>
+        <h2 className="text-xl font-bold text-white mb-2 tracking-tight">Conectar con Admin</h2>
+        <p className="text-slate-500 text-sm mb-8 font-medium">Ingresa el código que te proporcionó el administrador.</p>
 
-        <div className="space-y-4 mb-5">
-          <div className="space-y-2">
-            <label className="text-[10px] text-slate-500 uppercase tracking-widest">Código del admin</label>
+        <div className="space-y-5 mb-8">
+          <div className="space-y-2.5">
+            <label className="text-[11px] text-slate-500 uppercase tracking-[0.15em] font-bold">Código del Admin</label>
             <Input
               value={code}
               onChange={(e) => setCode(e.target.value)}
-              className="bg-white/[0.05] border-white/[0.06] text-white font-mono placeholder:text-slate-600 focus-visible:border-violet-500/40 focus-visible:ring-violet-500/20"
+              className="h-12 bg-white/[0.04] border-white/[0.08] text-white font-mono text-base placeholder:text-slate-600 focus-visible:border-violet-500/40 focus-visible:ring-violet-500/10 rounded-xl transition-all"
               placeholder="ej: jose2026"
             />
           </div>
-          <div className="space-y-2">
-            <label className="text-[10px] text-slate-500 uppercase tracking-widest">Tu nombre</label>
+          <div className="space-y-2.5">
+            <label className="text-[11px] text-slate-500 uppercase tracking-[0.15em] font-bold">Tu Nombre</label>
             <Input
               value={name}
               onChange={(e) => setName(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-              className="bg-white/[0.05] border-white/[0.06] text-white placeholder:text-slate-600 focus-visible:border-violet-500/40 focus-visible:ring-violet-500/20"
+              className="h-12 bg-white/[0.04] border-white/[0.08] text-white text-base placeholder:text-slate-600 focus-visible:border-violet-500/40 focus-visible:ring-violet-500/10 rounded-xl transition-all"
               placeholder="ej: María"
             />
           </div>
@@ -65,26 +67,26 @@ export function UserLogin({ onConnect, connecting, error }: UserLoginProps) {
 
         {error && (
           <motion.div
-            initial={{ opacity: 0, y: -5 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="p-3 rounded-xl bg-red-500/5 border border-red-500/10 mb-4"
+            className="p-4 rounded-xl bg-red-500/5 border border-red-500/10 mb-6"
           >
-            <p className="text-xs text-red-400">{error}</p>
+            <p className="text-sm text-red-400 font-medium">{error}</p>
           </motion.div>
         )}
 
         <Button
           onClick={handleSubmit}
           disabled={connecting || !code.trim() || name.trim().length < 2}
-          className="w-full h-11 rounded-xl bg-gradient-to-r from-violet-600 to-purple-500 hover:from-violet-500 hover:to-purple-400 text-white font-semibold shadow-lg shadow-violet-500/20 border-0"
+          className="w-full h-12 rounded-xl bg-gradient-to-r from-violet-600 to-purple-500 hover:from-violet-500 hover:to-purple-400 text-white font-bold shadow-xl shadow-violet-500/20 border-0 transition-all active:scale-[0.98] disabled:opacity-20"
         >
           {connecting ? (
-            <>
+            <div className="flex items-center gap-2">
               <Loader2 className="w-4 h-4 animate-spin" />
-              Conectando...
-            </>
+              <span>Conectando...</span>
+            </div>
           ) : (
-            "Conectar"
+            "Establecer Conexión P2P"
           )}
         </Button>
       </motion.div>

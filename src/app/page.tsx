@@ -96,11 +96,7 @@ export default function ChatADSPage() {
               incrementUnread(cid)
             }
           } else if (data.type === "typing") {
-            // Trigger typing indicator in admin panel
-            const setTyping = (window as unknown as Record<string, unknown>).__adminSetTyping as
-              | ((pid: string, val: boolean) => void)
-              | undefined
-            if (setTyping) setTyping(cid, data.val as boolean)
+            useChatStore.getState().setTyping(cid, data.val as boolean)
           }
         })
 
