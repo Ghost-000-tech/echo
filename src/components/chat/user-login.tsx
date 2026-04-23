@@ -50,7 +50,7 @@ export function UserLogin({ onConnect, connecting, error }: UserLoginProps) {
               value={code}
               onChange={(e) => setCode(e.target.value)}
               className="h-12 bg-white/[0.04] border-white/[0.08] text-white font-mono text-base placeholder:text-slate-600 focus-visible:border-violet-500/40 focus-visible:ring-violet-500/10 rounded-xl transition-all"
-              placeholder="ej: jose2026"
+              placeholder="ej: GT2511"
             />
           </div>
           <div className="space-y-2.5">
@@ -60,7 +60,7 @@ export function UserLogin({ onConnect, connecting, error }: UserLoginProps) {
               onChange={(e) => setName(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
               className="h-12 bg-white/[0.04] border-white/[0.08] text-white text-base placeholder:text-slate-600 focus-visible:border-violet-500/40 focus-visible:ring-violet-500/10 rounded-xl transition-all"
-              placeholder="ej: María"
+              placeholder="ej: Carlos"
             />
           </div>
         </div>

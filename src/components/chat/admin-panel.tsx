@@ -132,7 +132,7 @@ export function AdminPanel({ connections, onExit }: AdminPanelProps) {
               <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-sky-500/20">
                 <MessageCircle className="w-4 h-4 text-white" />
               </div>
-              <span className="text-white text-base font-bold tracking-tight">ChatADS</span>
+              <span className="text-white text-base font-bold tracking-tight">Echo</span>
             </div>
             <span className="text-[10px] bg-sky-500/10 text-sky-400 px-2.5 py-1 rounded-full font-bold border border-sky-500/20">
               ADMIN
@@ -224,10 +224,10 @@ export function AdminPanel({ connections, onExit }: AdminPanelProps) {
         {/* Sidebar Footer */}
         <div className="p-4 border-t border-white/[0.05] bg-white/[0.01] flex items-center gap-3.5">
           <div className="w-10 h-10 rounded-full bg-sky-500/15 flex items-center justify-center text-sm font-bold text-sky-400 border border-sky-500/20">
-            J
+            A
           </div>
           <div className="flex-1 min-w-0">
-            <div className="text-[13px] font-bold text-white">José (Admin)</div>
+            <div className="text-[13px] font-bold text-white">Administrador</div>
             <div className="text-[11px] text-emerald-400 font-medium flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               En línea
