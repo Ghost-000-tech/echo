@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "ChatADS — José",
-  description: "Sistema de mensajería P2P de José - Chat cifrado peer-to-peer",
+  title: "Echo — Secure P2P Messaging",
+  description: "Private and direct peer-to-peer messaging system.",
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/logo.png",
   },
 }
 

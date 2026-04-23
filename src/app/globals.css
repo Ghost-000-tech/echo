@@ -115,13 +115,44 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
   body {
     @apply bg-background text-foreground;
     background-image: 
-      radial-gradient(at 0% 0%, oklch(0.25 0.05 250 / 0.15) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, oklch(0.25 0.05 300 / 0.15) 0px, transparent 50%);
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+      radial-gradient(at 0% 0%, oklch(0.25 0.1 260 / 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, oklch(0.3 0.1 280 / 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, oklch(0.25 0.1 320 / 0.15) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, oklch(0.3 0.1 240 / 0.1) 0px, transparent 50%);
     background-attachment: fixed;
+    background-blend-mode: overlay;
+    cursor: default;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  ::selection {
+    background-color: oklch(0.6 0.15 260 / 0.3);
+    color: inherit;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/[0.05];
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+  .glass-header {
+    @apply bg-[#0d1220]/60 backdrop-blur-xl border-b border-white/[0.05];
+  }
+  .glass-card {
+    @apply bg-white/[0.02] backdrop-blur-xl border border-white/[0.04] rounded-2xl;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-card:hover {
+    @apply bg-white/[0.05] border-white/[0.1] shadow-2xl shadow-black/20;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-white/60;
   }
 }
 

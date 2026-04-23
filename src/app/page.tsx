@@ -9,7 +9,7 @@ import { UserLogin } from "@/components/chat/user-login"
 import { AdminPanel } from "@/components/chat/admin-panel"
 import { UserChat } from "@/components/chat/user-chat"
 
-export default function ChatADSPage() {
+export default function EchoPage() {
   const {
     screen, setScreen, adminCode, setAdminCode,
     userName, setUserName, users, addUser,
