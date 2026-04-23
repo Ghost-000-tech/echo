@@ -77,11 +77,7 @@ export default function EchoPage() {
             })
             adminConnectionsRef.current[cid] = conn
             setAdminConnections({ ...adminConnectionsRef.current })
-            // Auto-select first user
-            if (Object.keys(users).length === 0) {
-              useChatStore.getState().setActiveUser(cid)
-              useChatStore.getState().clearUnread(cid)
-            }
+
           } else if (data.type === "message") {
             const store = useChatStore.getState()
             if (!store.users[cid]) return

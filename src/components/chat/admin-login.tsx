@@ -15,7 +15,7 @@ interface AdminLoginProps {
 
 export function AdminLogin({ onConnect, connecting, error }: AdminLoginProps) {
   const setScreen = useChatStore((s) => s.setScreen)
-  const [code, setCode] = useState("jose2026")
+  const [code, setCode] = useState("GT2511")
   const [copied, setCopied] = useState(false)
 
   const handleSubmit = () => {
@@ -57,7 +57,7 @@ export function AdminLogin({ onConnect, connecting, error }: AdminLoginProps) {
               onChange={(e) => setCode(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
               className="h-12 bg-white/[0.04] border-white/[0.08] text-white font-mono text-base placeholder:text-slate-600 focus-visible:border-sky-500/40 focus-visible:ring-sky-500/10 rounded-xl transition-all"
-              placeholder="ej: jose2026"
+              placeholder="ej: GT2511"
             />
             <Button
               variant="ghost"
